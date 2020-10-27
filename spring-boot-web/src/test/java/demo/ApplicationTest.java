@@ -24,7 +24,7 @@ public class ApplicationTest {
     private RedisTemplate<String, User> redisTemplate;
 
 
-    @Before
+/*    @Before
     public void load() {
         userservice.deleteall();
     }
@@ -43,7 +43,7 @@ public class ApplicationTest {
         userservice.deletebyname("c");
 
         Assert.assertEquals(3,userservice.selectall().intValue());
-    }
+    }*/
 
     @Test
     public void testredis(){
@@ -53,12 +53,12 @@ public class ApplicationTest {
 //		Assert.assertEquals("111", stringRedisTemplate.opsForValue().get("aaa"));
 
         // 保存对象
-        User user = new User(1, "aaa", true);
+/*        User user = new User(1, "aaa", "true");
         redisTemplate.opsForValue().set(user.getUsername(), user);
-        user = new User(2, "bbb", true);
+        user = new User(2, "bbb", "true");
         redisTemplate.opsForValue().set(user.getUsername(), user);
-        user = new User(3, "ccc", false);
-        redisTemplate.opsForValue().set(user.getUsername(), user);
+        user = new User(3, "ccc", "false");
+        redisTemplate.opsForValue().set(user.getUsername(), user);*/
 
         Assert.assertEquals(1, redisTemplate.opsForValue().get("aaa").getId());
         Assert.assertEquals(2, redisTemplate.opsForValue().get("bbb").getId());

@@ -1,46 +1,29 @@
 package demo.entity;
 
 
-import lombok.Data;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.io.Serializable;
 
-@Component
 public class User implements Serializable {
 
     private static final long serialVersionUID = 8905506791424484890L;
 
-    @Value("${test.user.id}")
     private int id;
 
-    @Value("${test.user.name}")
     private String name;
 
-    @Value("${test.user.username}")
     private String username;
 
-    @Value("${test.user.password}")
     private String password;
 
-    @Value("${test.other.sax}")
-    private String sax;
+    private String gender;
 
-    @Value("${test.other.height}")
     private double height;
 
-    @Value("${test.other.weight}")
     private double weight;
-
-    private Boolean gander;
-
-
-    public User(Integer id, String username, Boolean gander) {
-        this.id = id;
-        this.username = username;
-        this.gander = gander;
-    }
 
     public int getId() {
         return id;
@@ -74,12 +57,12 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public String getSax() {
-        return sax;
+    public String getGender() {
+        return gender;
     }
 
-    public void setSax(String sax) {
-        this.sax = sax;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public double getHeight() {
@@ -97,23 +80,4 @@ public class User implements Serializable {
     public void setWeight(double weight) {
         this.weight = weight;
     }
-
-    public User(int id, String name, String username, String password, String sax, double height, double weight){
-        this.id=id;
-        this.name=name;
-        this.username=username;
-        this.password=password;
-        this.sax=sax;
-        this.height=height;
-        this.weight=weight;
-    }
-    public User(int id,String name,String username,String password){
-        this.id=id;
-        this.name=name;
-        this.username=username;
-        this.password=password;
-    }
-
-    public User(){}
-
 }

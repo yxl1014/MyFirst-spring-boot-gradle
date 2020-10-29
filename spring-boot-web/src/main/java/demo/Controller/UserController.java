@@ -4,6 +4,7 @@ import demo.annotation.LogRecord;
 import demo.entity.User;
 import demo.service.UserserviceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
@@ -38,6 +39,7 @@ public class UserController {
     }
 
     @GetMapping(value = "find_name")
+    @Cacheable(cacheNames = "user", key = "#name")
     @LogRecord(operation = "用户操作", type = "通过用户名查用户")
     public String findByName(@RequestParam(name = "name")String name){
         User user= userservice.findByName(name);

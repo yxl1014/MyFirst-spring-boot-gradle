@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+    <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#jump").on('click',function (){
+                $.ajax({
+                    url:'/abc',
+                    data:{'username':$("#username"),'password':$("#password")},
+                    type:'POST',
+                    success:function(data){
+                        w=window.open("/show");
+                        d=JSON.stringify(data);
+                        w.document.write(d);
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+username:
+<input id="username" type="text" />
+<br>
+password:
+<input id="password" type="password" />
+<br>
+<button id="jump">login</button>
+</body>
+</html>

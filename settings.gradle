@@ -1,3 +1,4 @@
 rootProject.name = 'first-gradle'
 include 'spring-boot-web'
+include 'ajax'
 
